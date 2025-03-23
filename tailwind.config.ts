@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -112,6 +111,9 @@ export default {
 				'slide-out': 'slide-out 0.4s ease-out',
 				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'float': 'float 3s ease-in-out infinite'
+			},
+			fontFamily: {
+				'outfit': ['Outfit', 'sans-serif'],
 			}
 		}
 	},

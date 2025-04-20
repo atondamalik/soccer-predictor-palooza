@@ -1,4 +1,3 @@
-
 import { User, Match, Pool, League, LeaderboardEntry, Prediction, Transaction } from '@/types';
 
 // Leagues
@@ -29,6 +28,22 @@ export const mockUsers: User[] = [
     wallet: 1000,
     isAdmin: true,
     createdAt: new Date(2023, 11, 25).toISOString(),
+  },
+  {
+    id: '4',
+    username: 'AlexThompson',
+    email: 'alex@example.com',
+    wallet: 500,
+    isAdmin: false,
+    createdAt: new Date(2024, 0, 15).toISOString(),
+  },
+  {
+    id: '5',
+    username: 'SarahWilson',
+    email: 'sarah@example.com',
+    wallet: 750,
+    isAdmin: false,
+    createdAt: new Date(2024, 0, 20).toISOString(),
   },
 ];
 
@@ -161,6 +176,38 @@ export const mockPools: Pool[] = [
     endDate: new Date(2025, 1, 27).toISOString(),
     status: 'upcoming',
   },
+  {
+    id: 'p3',
+    name: 'Bundesliga Week 22',
+    league: 'Bundesliga',
+    matches: mockMatches.slice(0, 5).map(match => ({
+      ...match,
+      league: 'Bundesliga',
+      homeTeam: ['Bayern Munich', 'Dortmund', 'Leipzig', 'Leverkusen', 'Wolfsburg'][Math.floor(Math.random() * 5)],
+      awayTeam: ['Frankfurt', 'Gladbach', 'Union Berlin', 'Stuttgart', 'Freiburg'][Math.floor(Math.random() * 5)],
+    })),
+    entryFee: 15,
+    jackpot: 1200,
+    startDate: new Date(2025, 2, 1).toISOString(),
+    endDate: new Date(2025, 2, 3).toISOString(),
+    status: 'upcoming',
+  },
+  {
+    id: 'p4',
+    name: 'Serie A Week 25',
+    league: 'Serie A',
+    matches: mockMatches.slice(0, 5).map(match => ({
+      ...match,
+      league: 'Serie A',
+      homeTeam: ['Inter', 'Milan', 'Juventus', 'Roma', 'Napoli'][Math.floor(Math.random() * 5)],
+      awayTeam: ['Lazio', 'Atalanta', 'Fiorentina', 'Torino', 'Bologna'][Math.floor(Math.random() * 5)],
+    })),
+    entryFee: 12,
+    jackpot: 900,
+    startDate: new Date(2025, 2, 8).toISOString(),
+    endDate: new Date(2025, 2, 10).toISOString(),
+    status: 'upcoming',
+  },
 ];
 
 // Mock Leaderboard
@@ -210,6 +257,42 @@ export const mockLeaderboard: LeaderboardEntry[] = [
     correctTies: 0,
     rank: 5,
   },
+  {
+    userId: '7',
+    username: 'DavidClark',
+    points: 7,
+    correctScores: 0,
+    correctOutcomes: 3,
+    correctTies: 1,
+    rank: 6,
+  },
+  {
+    userId: '8',
+    username: 'EmmaLewis',
+    points: 5,
+    correctScores: 0,
+    correctOutcomes: 2,
+    correctTies: 1,
+    rank: 7,
+  },
+  {
+    userId: '9',
+    username: 'OliverBrown',
+    points: 4,
+    correctScores: 0,
+    correctOutcomes: 2,
+    correctTies: 0,
+    rank: 8,
+  },
+  {
+    userId: '10',
+    username: 'SophiaWhite',
+    points: 2,
+    correctScores: 0,
+    correctOutcomes: 1,
+    correctTies: 0,
+    rank: 9,
+  },
 ];
 
 // Mock Predictions
@@ -236,6 +319,22 @@ export const mockPredictions: Prediction[] = [
     matchId: 'm1',
     homeScore: 1,
     awayScore: 2,
+    createdAt: new Date(2025, 1, 24).toISOString(),
+  },
+  {
+    id: 'pred4',
+    userId: '2',
+    matchId: 'm2',
+    homeScore: 2,
+    awayScore: 2,
+    createdAt: new Date(2025, 1, 24).toISOString(),
+  },
+  {
+    id: 'pred5',
+    userId: '2',
+    matchId: 'm3',
+    homeScore: 3,
+    awayScore: 1,
     createdAt: new Date(2025, 1, 24).toISOString(),
   },
 ];
@@ -277,5 +376,41 @@ export const mockTransactions: Transaction[] = [
     status: 'completed',
     description: 'Premier League Week 26 entry fee',
     createdAt: new Date(2025, 1, 24).toISOString(),
+  },
+  {
+    id: 't5',
+    userId: '1',
+    amount: 100,
+    type: 'payout',
+    status: 'completed',
+    description: 'Premier League Week 25 winnings',
+    createdAt: new Date(2025, 1, 23).toISOString(),
+  },
+  {
+    id: 't6',
+    userId: '2',
+    amount: -10,
+    type: 'fee',
+    status: 'completed',
+    description: 'La Liga Week 24 entry fee',
+    createdAt: new Date(2025, 1, 24).toISOString(),
+  },
+  {
+    id: 't7',
+    userId: '1',
+    amount: -50,
+    type: 'withdrawal',
+    status: 'pending',
+    description: 'Withdrawal request',
+    createdAt: new Date(2025, 1, 25).toISOString(),
+  },
+  {
+    id: 't8',
+    userId: '2',
+    amount: 25,
+    type: 'payout',
+    status: 'completed',
+    description: 'La Liga Week 23 winnings',
+    createdAt: new Date(2025, 1, 22).toISOString(),
   },
 ];

@@ -42,6 +42,7 @@ const Index = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
+            entry.target.classList.remove('opacity-0');
             observer.unobserve(entry.target);
           }
         });
@@ -49,13 +50,38 @@ const Index = () => {
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-      observer.observe(el);
+    // Immediately show content if it's already in viewport
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach((el) => {
+      // Add a small delay to ensure elements are rendered properly
+      setTimeout(() => {
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+        if (isVisible) {
+          el.classList.add('animate-fade-in');
+          el.classList.remove('opacity-0');
+        } else {
+          observer.observe(el);
+        }
+      }, 100);
     });
 
     return () => {
       observer.disconnect();
     };
+  }, [featuredPools]);
+
+  // Add fallback to ensure content is visible
+  useEffect(() => {
+    // Fallback timeout to make all elements visible after 2 seconds
+    const timeout = setTimeout(() => {
+      document.querySelectorAll('.animate-on-scroll.opacity-0').forEach((el) => {
+        el.classList.add('animate-fade-in');
+        el.classList.remove('opacity-0');
+      });
+    }, 2000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -117,7 +143,7 @@ const Index = () => {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredPools.map((pool) => (
-                  <Card key={pool.id} className="overflow-hidden hover-lift animate-on-scroll opacity-0">
+                  <Card key={pool.id} className="overflow-hidden hover-lift animate-on-scroll">
                     <CardContent className="p-0">
                       <div className="p-6">
                         <Badge className={`${getLeagueColor(pool.league)} text-white mb-3`}>
@@ -159,7 +185,7 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll opacity-0">
+              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Trophy className="text-primary h-6 w-6" />
                 </div>
@@ -169,7 +195,7 @@ const Index = () => {
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll opacity-0">
+              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Calculator className="text-primary h-6 w-6" />
                 </div>
@@ -179,7 +205,7 @@ const Index = () => {
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll opacity-0">
+              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Shield className="text-primary h-6 w-6" />
                 </div>
@@ -189,7 +215,7 @@ const Index = () => {
                 </p>
               </div>
               
-              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll opacity-0">
+              <div className="bg-white p-6 rounded-xl shadow-sm animate-on-scroll">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Wallet className="text-primary h-6 w-6" />
                 </div>
@@ -217,7 +243,7 @@ const Index = () => {
               </Button>
             </div>
             
-            <div className="bg-white rounded-xl border shadow-sm overflow-hidden animate-on-scroll opacity-0">
+            <div className="bg-white rounded-xl border shadow-sm overflow-hidden animate-on-scroll">
               <table className="w-full">
                 <thead>
                   <tr className="border-b bg-gray-50">

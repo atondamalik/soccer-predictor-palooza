@@ -92,7 +92,7 @@ const Index = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent">
           <div className="container mx-auto px-4 flex flex-col items-center text-center">
-            <Badge className="mb-6 py-1.5 px-6 text-sm font-medium bg-white">Soccer Betting Pool</Badge>
+            <Badge className="mb-6 py-1.5 px-6 text-sm font-medium bg-primary/90">Soccer Betting Pool</Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-3xl">
               Predict. Compete. <span className="text-primary">Win.</span>
             </h1>

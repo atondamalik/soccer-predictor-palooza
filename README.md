@@ -1,69 +1,145 @@
-# Welcome to your Lovable project
 
-## Project info
+# ⚽ Soccer Betting Pool Application
 
-**URL**: https://lovable.dev/projects/d833e5d4-62d2-4154-ae34-1fbe5ff5cda6
+A modern web application for creating and participating in soccer betting pools with friends. Built with React, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## 🌟 Features
 
-There are several ways of editing your application.
+### For Users
+- **Live Match Tracking**: Follow soccer matches across multiple leagues in real-time
+- **Betting Pools**: Join pools across Premier League, La Liga, Bundesliga, and Serie A
+- **Score Predictions**: Make predictions for upcoming matches
+- **Virtual Wallet**: Manage your funds for entering pools and receiving winnings
+- **Leaderboards**: Track your performance against other players
+- **Transaction History**: View your complete betting history
 
-**Use Lovable**
+### For Administrators
+- Pool Management: Create and manage betting pools
+- User Management: Overview of user activities and transactions
+- Match Management: Update match statuses and scores
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d833e5d4-62d2-4154-ae34-1fbe5ff5cda6) and start prompting.
+## 💻 Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **State Management**: @tanstack/react-query
+- **Routing**: React Router DOM
+- **Charts & Visualizations**: Recharts
+- **Icons**: Lucide React
+- **Form Handling**: React Hook Form with Zod validation
+- **Notifications**: Sonner toast notifications
+- **Date Handling**: date-fns
 
-**Use your preferred IDE**
+## 🚀 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js (v18 or higher)
+- npm (Node Package Manager)
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Clone the repository:
+```bash
+git clone <repository-url>
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Navigate to the project directory:
+```bash
+cd soccer-betting
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. Install dependencies:
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📱 Application Structure
 
-**Use GitHub Codespaces**
+### Pages
+- **Home**: Featured pools and leaderboards
+- **Pools**: Browse and join betting pools
+- **Pool Detail**: View specific pool information and make predictions
+- **Leaderboards**: Global and pool-specific rankings
+- **Profile**: User information and settings
+- **Wallet**: Manage virtual currency and transaction history
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Key Components
+- **MatchPredictionCard**: Make predictions for individual matches
+- **PoolCard**: Display pool information and entry details
+- **LeaderboardTable**: Show user rankings and scores
+- **WalletCard**: Display user balance and quick actions
+- **TransactionHistoryTable**: List of user's financial activities
 
-## What technologies are used for this project?
+## 🎮 How to Play
 
-This project is built with .
+1. **Create an Account**: Register with your email and password
+2. **Add Funds**: Deposit virtual currency to your wallet
+3. **Join a Pool**: Browse available pools and pay entry fee to join
+4. **Make Predictions**: Submit your score predictions for matches
+5. **Track Progress**: Monitor your predictions and standings
+6. **Collect Winnings**: Receive payouts for successful predictions
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📝 Scoring System
 
-## How can I deploy this project?
+- **Correct Score**: 5 points
+- **Correct Outcome & Goal Difference**: 3 points
+- **Correct Outcome Only**: 2 points
 
-Simply open [Lovable](https://lovable.dev/projects/d833e5d4-62d2-4154-ae34-1fbe5ff5cda6) and click on Share -> Publish.
+## 🔒 Security Features
 
-## I want to use a custom domain - is that possible?
+- Secure authentication system
+- Protected API endpoints
+- Input validation and sanitization
+- Session management
+- Secure wallet transactions
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## 🛠️ Development
+
+### Code Organization
+```
+src/
+├── components/     # Reusable UI components
+├── hooks/         # Custom React hooks
+├── lib/          # Utilities and helpers
+├── pages/        # Route components
+└── types/        # TypeScript definitions
+```
+
+### Key Files
+- `src/lib/auth.ts`: Authentication logic
+- `src/lib/mockData.ts`: Development data
+- `src/types/index.ts`: TypeScript interfaces
+- `src/lib/utils.ts`: Helper functions
+
+### Styling
+- Tailwind CSS for utility-first styling
+- Custom animations and transitions
+- Responsive design for all screen sizes
+- Dark mode support
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Lovable](https://lovable.dev)
+- UI components from [shadcn/ui](https://ui.shadcn.com)
+- Icons from [Lucide](https://lucide.dev)
+
